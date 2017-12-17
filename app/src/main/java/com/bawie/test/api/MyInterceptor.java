@@ -1,7 +1,8 @@
-package com.bawie.test;
+package com.bawie.test.api;
 
 import android.util.Log;
 
+import com.bawie.test.util.MyApp;
 import com.bawie.test.util.ShareprefrensUtils;
 
 import java.io.IOException;

@@ -16,7 +16,7 @@
 
     <EditText
         android:id="@+id/et_p"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/x20"
         android:hint="密码"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -24,6 +24,12 @@
     <Button
         android:id="@+id/btn"
         android:text="登录"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:text="游客登录"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

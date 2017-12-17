@@ -1,4 +1,8 @@
-package com.bawie.test;
+package com.bawie.test.util;
+
+import com.bawie.test.api.Api;
+import com.bawie.test.api.InterfaceApi;
+import com.bawie.test.api.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,12 +12,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by 张肖肖 on 2017/12/13.
+ *
  */
 
 public class HttpUtils {
 
-    public static final int TIMEOUT=1000*60;
+    public static final int TIMEOUT=1000*30;
     public static HttpUtils myQusetUtils;
     private InterfaceApi questInterface;
 

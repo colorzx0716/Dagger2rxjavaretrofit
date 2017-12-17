@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/zhu_list_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y150">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/zhu_list_touxiang"
+            android:src="@mipmap/raw_1500033586"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y150" />
+
+        <RelativeLayout
+            android:id="@+id/zhu_list_rl2"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_toRightOf="@+id/zhu_list_touxiang"
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y150">
+
+            <TextView
+                android:textSize="20sp"
+                android:textColor="#ff6655"
+                android:id="@+id/zhu_list_nicheng"
+                android:text="发布人昵称"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_below="@+id/zhu_list_nicheng"
+                android:id="@+id/zhu_list_data"
+                android:text="日期"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_toRightOf="@+id/zhu_list_rl2"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y150">
+
+            <Button
+                android:id="@+id/zhu_list_guan"
+                android:text="关注"
+                android:layout_width="@dimen/x150"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/zhu_list_cang"
+                android:text="收藏"
+                android:layout_width="@dimen/x150"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/zhu_list_des"
+        android:layout_below="@+id/zhu_list_rl"
+        android:text="描述"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_below="@+id/zhu_list_des"
+        android:id="@+id/zhu_list_player"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y400"/>
+
+
+</RelativeLayout>

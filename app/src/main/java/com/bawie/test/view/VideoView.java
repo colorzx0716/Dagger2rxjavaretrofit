@@ -1,9 +1,9 @@
 package com.bawie.test.view;
 
-import com.bawie.test.Bean;
+import com.bawie.test.entity.Bean;
 
 /**
- * v层
+ *登录 v层
  */
 
 public interface VideoView {

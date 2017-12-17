@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bawie.test.activity.ZhuActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:id="@+id/drawer_layout"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+            android:background="@color/violet"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y120">
+
+            <ImageView
+                android:id="@+id/zhu_touxiang"
+                android:src="@mipmap/raw_1500033586"
+                android:layout_width="@dimen/x120"
+                android:layout_height="@dimen/y120" />
+
+            <TextView
+                android:text="视频"
+                android:textColor="@color/darkslategray"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y120" />
+
+        </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y200"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/raw_1500033586" />
+
+
+                <com.jcodecraeer.xrecyclerview.XRecyclerView
+                    android:id="@+id/zhu_xrv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#ffffff"
+            android:layout_width="@dimen/x600"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            >
+            <RelativeLayout
+                android:background="@color/violet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/zhu_left_touxiang"
+                    android:src="@mipmap/raw_1500033586"
+                    android:layout_width="@dimen/x120"
+                    android:layout_height="@dimen/y120" />
+
+                <TextView
+                    android:id="@+id/zhu_left_ni"
+                    android:text="昵称"
+                    android:layout_toRightOf="@+id/zhu_left_touxiang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/zhu_left_master"
+                android:text="我的主页"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/zhu_left_shezhi"
+                android:text="我的设置"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/zhu_left_sousuo"
+                android:text="搜索好友"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/zhu_left_guan"
+                android:text="我的关注"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

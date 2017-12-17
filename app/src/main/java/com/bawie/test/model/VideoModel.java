@@ -1,7 +1,7 @@
 package com.bawie.test.model;
 
-import com.bawie.test.Bean;
-import com.bawie.test.HttpUtils;
+import com.bawie.test.entity.Bean;
+import com.bawie.test.util.HttpUtils;
 
 import javax.inject.Inject;
 
@@ -11,7 +11,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * m层
+ *登录m层
  */
 
 public class VideoModel {

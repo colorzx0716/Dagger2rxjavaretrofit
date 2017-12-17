@@ -1,4 +1,4 @@
-package com.bawie.test;
+package com.bawie.test.util;
 
 import android.app.Application;
 import android.content.Context;

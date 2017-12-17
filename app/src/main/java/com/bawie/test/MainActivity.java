@@ -1,29 +1,35 @@
 package com.bawie.test;
 
-import android.os.Bundle;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import com.bawie.test.activity.ZhuActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    //注入对象
-  /*  @Inject
-    Person person;*/
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //传统的方式  Person person =new Person();
+        sp = getSharedPreferences("first", MODE_PRIVATE);
+        boolean first = sp.edit().putBoolean("first", true).commit();
+        if(first){
+           sp.edit().putBoolean("first",false).commit();
 
-        //得到桥梁
-      //  VideoComponent videoComponent = DaggerVideoComponent.builder().videoModule(new VideoModule()).build();
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            startActivity(intent);
+            finish();
+        }else if (first == false){
+            Intent intent = new Intent(MainActivity.this, ZhuActivity.class);
+            startActivity(intent);
+            finish();
 
-        //注入
-       // videoComponent.inject(this);
-
-
-
+        }
 
     }
 }

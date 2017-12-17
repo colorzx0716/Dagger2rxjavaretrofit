@@ -1,13 +1,13 @@
 package com.bawie.test.presenter;
 
-import com.bawie.test.Bean;
+import com.bawie.test.entity.Bean;
 import com.bawie.test.model.VideoModel;
 import com.bawie.test.view.VideoView;
 
 import javax.inject.Inject;
 
 /**
- * Created by 张肖肖 on 2017/12/12.
+ * 登录Presenter
  */
 
 public class VideoPresenter implements VideoModel.VideoMessage{
@@ -15,9 +15,6 @@ public class VideoPresenter implements VideoModel.VideoMessage{
     @Inject
     VideoModel videoModel;
     VideoView videoView;
-    //CompositeDisposable compositeDisposable;
-
-    //private DisposableSubscriber<Bean.DataBean> disposableSubscriber;
 
     //@Inject实例化p对象   注入v      p关联v
     @Inject
@@ -28,8 +25,6 @@ public class VideoPresenter implements VideoModel.VideoMessage{
 
     //p关联m
     public void relevance(String m,String p){
-        //compositeDisposable = new CompositeDisposable();
-        //Rxjava内存泄漏问题
         videoModel.setVideoMessageInterface(this);
         videoModel.getServiceData(m,p);
     }

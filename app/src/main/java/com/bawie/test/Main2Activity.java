@@ -1,5 +1,6 @@
 package com.bawie.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.bawie.test.activity.ZhuActivity;
+import com.bawie.test.entity.Bean;
 import com.bawie.test.presenter.VideoPresenter;
+import com.bawie.test.util.ShareprefrensUtils;
 import com.bawie.test.view.VideoView;
 
 import javax.inject.Inject;
@@ -22,6 +26,8 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
     private Button btn;
     private String m;
     private String p;
+    private Button btn2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +37,14 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
         if(getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
+
         initView();
         //获取桥梁
         VideoComponent component = DaggerVideoComponent.builder()
-                .videoModule(new VideoModule(this)).build();
+                .videoModule(new VideoModule(this,null,null)).build();
         //注入
         component.inject(this);
+
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +64,20 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
         et_m = findViewById(R.id.et_m);
         et_p = findViewById(R.id.et_p);
         btn = findViewById(R.id.btn);
+        btn2 = findViewById(R.id.btn2);
+
+        //自动跳转页面
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Main2Activity.this, ZhuActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);
+                finish();
+
+            }
+        });
 
     }
 
@@ -70,10 +92,18 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
     public void userVideoSuccess(Bean value) {
         //获取数据
         Toast.makeText(this, value.msg, Toast.LENGTH_SHORT).show();
-        String mobile = value.data.mobile;
         String nickname = value.data.nickname;
-        System.out.println("=====mobile===="+mobile);
         System.out.println("=====nickname===="+nickname);
+
+        ShareprefrensUtils.put(this,"uid",value.data.uid+"");
+        ShareprefrensUtils.put(this,"token",value.data.token+"");
+
+            //跳转页面
+            Intent intent = new Intent(Main2Activity.this, ZhuActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);
+            finish();
+
     }
 
     @Override

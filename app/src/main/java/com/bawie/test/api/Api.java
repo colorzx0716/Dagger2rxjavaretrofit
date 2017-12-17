@@ -1,4 +1,4 @@
-package com.bawie.test;
+package com.bawie.test.api;
 
 /**
  * Created by 张肖肖 on 2017/12/12.
