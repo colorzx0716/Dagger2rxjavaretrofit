@@ -2,7 +2,9 @@ package com.bawie.test.api;
 
 import com.bawie.test.entity.Bean;
 import com.bawie.test.entity.FollowUsersBean;
+import com.bawie.test.entity.SearchBean;
 import com.bawie.test.entity.UserInfo;
+import com.bawie.test.entity.UserVideosBean;
 import com.bawie.test.entity.VideosBean;
 
 import io.reactivex.Observable;
@@ -36,6 +38,21 @@ public interface InterfaceApi {
     @POST("quarter/getFollowUsers")
     @FormUrlEncoded
     Observable<FollowUsersBean> getFollowUsers(@Field("uid") String uid);
+
+   //获取某个用户的视频作品集
+    @POST("quarter/getUserVideos")
+    @FormUrlEncoded
+    Observable<UserVideosBean> getUserVideos(@Field("uid") String uid, @Field("page") String page);
+
+    //作品评论
+    @POST("quarter/comment")
+    @FormUrlEncoded
+    Observable<UserVideosBean> getComment(@Field("uid") String uid, @Field("page") String page,@Field("content") String content);
+
+    //搜索好友
+    @POST("quarter/searchFriends")
+    @FormUrlEncoded
+    Observable<SearchBean> getsearch(@Field("keywords") String keywords, @Field("page") String page);
 
 
 }

@@ -20,8 +20,8 @@ import com.bawie.test.util.ShareprefrensUtils;
 import com.bawie.test.view.FollowUsersView;
 
 import java.util.List;
-
 import javax.inject.Inject;
+
 
 //关注列表
 public class GuanActivity extends AppCompatActivity implements View.OnClickListener,FollowUsersView {
@@ -41,6 +41,10 @@ public class GuanActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guan);
+        //手动隐藏标题
+        if(getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
 
         initView();
 

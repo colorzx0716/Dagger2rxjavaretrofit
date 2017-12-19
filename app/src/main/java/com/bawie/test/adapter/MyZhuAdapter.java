@@ -27,10 +27,9 @@ import java.util.List;
 
 public class MyZhuAdapter extends XRecyclerView.Adapter<MyZhuAdapter.MyZhuViewHolder> implements View.OnClickListener {
 
-
     private final Context context;
     private final List<VideosBean.DataBean> data;
-
+    private int uid;
 
     public MyZhuAdapter(Context context, List<VideosBean.DataBean> data) {
         this.context = context;
@@ -46,6 +45,8 @@ public class MyZhuAdapter extends XRecyclerView.Adapter<MyZhuAdapter.MyZhuViewHo
 
     @Override
     public void onBindViewHolder(final MyZhuViewHolder holder, int position) {
+
+        uid = data.get(position).uid;
 
         String icon = data.get(position).user.icon;
         String nickname = data.get(position).user.nickname;
@@ -80,7 +81,7 @@ public class MyZhuAdapter extends XRecyclerView.Adapter<MyZhuAdapter.MyZhuViewHo
                 .startPlay();
 
         holder.zhu_list_guan.setOnClickListener(this);
-        holder.zhu_list_cang.setOnClickListener(this);
+        holder.zhu_list_pinglun.setOnClickListener(this);
     }
 
     @Override
@@ -91,17 +92,16 @@ public class MyZhuAdapter extends XRecyclerView.Adapter<MyZhuAdapter.MyZhuViewHo
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.zhu_list_cang:
-                Toast.makeText(context, "点击了收藏", Toast.LENGTH_SHORT).show();
-
+            case R.id.zhu_list_pinglun:
+                Toast.makeText(context, "点击了评论", Toast.LENGTH_SHORT).show();
+                //弹框，模仿微博
+                //或者到视频详情里面，评论在详情里面写，并刷新
 
 
                 break;
 
             case R.id.zhu_list_guan:
-                Toast.makeText(context, "点击了关注", Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(context, "关注", Toast.LENGTH_SHORT).show();
 
                 break;
         }
@@ -114,7 +114,7 @@ public class MyZhuAdapter extends XRecyclerView.Adapter<MyZhuAdapter.MyZhuViewHo
         private final TextView zhu_list_data;
         private final TextView zhu_list_des;
         private final RelativeLayout zhu_list_player;
-        private final Button zhu_list_cang;
+        private final Button zhu_list_pinglun;
         private final Button zhu_list_guan;
 
         public MyZhuViewHolder(View itemView) {
@@ -125,7 +125,7 @@ public class MyZhuAdapter extends XRecyclerView.Adapter<MyZhuAdapter.MyZhuViewHo
             zhu_list_des = itemView.findViewById(R.id.zhu_list_des);
             zhu_list_player = itemView.findViewById(R.id.zhu_list_player);
             //关注收藏
-            zhu_list_cang = itemView.findViewById(R.id.zhu_list_cang);
+            zhu_list_pinglun = itemView.findViewById(R.id.zhu_list_pinglun);
             zhu_list_guan = itemView.findViewById(R.id.zhu_list_guan);
 
         }

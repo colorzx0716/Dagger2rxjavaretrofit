@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.bawie.test"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -20,6 +20,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
@@ -52,5 +53,12 @@ dependencies {
     compile 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.6'
 ////对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.0'
     compile 'com.dou361.ijkplayer-armv5:jjdxm-ijkplayer-armv5:1.0.0'
+
+    //自定义控件等待
+    compile 'com.carson_ho:Kawaii_LoadingView:1.0.0'
+
+    //搜索控件
+    compile 'com.carson_ho:SearchLayout:1.0.1'
+
 
 }

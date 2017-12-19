@@ -1,6 +1,7 @@
 package com.bawie.test;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,6 +28,7 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
     private String m;
     private String p;
     private Button btn2;
+    private SharedPreferences sp;
 
 
     @Override
@@ -37,6 +39,8 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
         if(getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
+
+        sp = getSharedPreferences("sp", MODE_PRIVATE);
 
         initView();
         //获取桥梁
@@ -50,6 +54,8 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                sp.edit().putBoolean("isfirst",false).commit();
                 //p调用关联m方法
                 m = et_m.getText().toString();
                 p = et_p.getText().toString();
@@ -98,7 +104,10 @@ public class Main2Activity extends AppCompatActivity implements VideoView {
         ShareprefrensUtils.put(this,"uid",value.data.uid+"");
         ShareprefrensUtils.put(this,"token",value.data.token+"");
 
-            //跳转页面
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean("isfirst",true).commit();//提交
+
+        //跳转页面
             Intent intent = new Intent(Main2Activity.this, ZhuActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);

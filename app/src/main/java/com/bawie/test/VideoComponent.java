@@ -1,7 +1,9 @@
 package com.bawie.test;
 
 import com.bawie.test.activity.GuanActivity;
+import com.bawie.test.activity.SSActivity;
 import com.bawie.test.activity.ZhuActivity;
+import com.bawie.test.fragment.UploadFragment;
 
 import dagger.Component;
 
@@ -18,6 +20,8 @@ public interface VideoComponent {
 
     void inject(GuanActivity guanActivity);
 
+    void inject(UploadFragment uploadFragment);
 
+    void inject(SSActivity ssActivity);
 
 }

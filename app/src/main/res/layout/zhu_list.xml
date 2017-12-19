@@ -51,8 +51,8 @@
                 android:layout_width="@dimen/x150"
                 android:layout_height="wrap_content" />
             <Button
-                android:id="@+id/zhu_list_cang"
-                android:text="收藏"
+                android:id="@+id/zhu_list_pinglun"
+                android:text="评论"
                 android:layout_width="@dimen/x150"
                 android:layout_height="wrap_content" />
 

@@ -59,6 +59,9 @@ public class ZhuActivity extends AppCompatActivity implements View.OnClickListen
     private String uid;
     private Button zhu_left_sousuo;
     private Button zhu_left_guan;
+    private int uid1;
+    private Button zhu_left_cang;
+    private Button zhu_left_tongzhi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +107,11 @@ public class ZhuActivity extends AppCompatActivity implements View.OnClickListen
         zhu_left_sousuo = findViewById(R.id.zhu_left_sousuo);
         //我的关注
         zhu_left_guan = findViewById(R.id.zhu_left_guan);
+        //我的收藏
+        zhu_left_cang = findViewById(R.id.zhu_left_cang);
+        //消息通知
+        zhu_left_tongzhi = findViewById(R.id.zhu_left_tongzhi);
+
 
 
         drawer_layout = findViewById(R.id.drawer_layout);
@@ -129,6 +137,8 @@ public class ZhuActivity extends AppCompatActivity implements View.OnClickListen
         zhu_left_master.setOnClickListener(this);
         zhu_left_sousuo.setOnClickListener(this);
         zhu_left_guan.setOnClickListener(this);
+        zhu_left_tongzhi.setOnClickListener(this);
+        zhu_left_cang.setOnClickListener(this);
 
     }
 
@@ -153,7 +163,7 @@ public class ZhuActivity extends AppCompatActivity implements View.OnClickListen
 
                 break;
             case R.id.zhu_left_master:
-                //跳转到我的主页面
+                //跳转到我的作品
                 Intent intent2 = new Intent(ZhuActivity.this,MasterActivity.class);
                 startActivity(intent2);
                 overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);
@@ -166,7 +176,6 @@ public class ZhuActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(intent1);
                 overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);
 
-
                 break;
             case R.id.zhu_left_guan:
                 //我的关注
@@ -174,6 +183,18 @@ public class ZhuActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(intent3);
                 overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);
 
+                break;
+            case R.id.zhu_left_cang:
+                //我的收藏
+                Intent intent4 = new Intent(ZhuActivity.this,CollectionActivity.class);
+                startActivity(intent4);
+                overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);
+                break;
+            case R.id.zhu_left_tongzhi:
+                //消息通知
+                Intent intent5 = new Intent(ZhuActivity.this,NoticeActivity.class);
+                startActivity(intent5);
+                overridePendingTransition(R.anim.bottom_to_top_in, R.anim.bottom_to_top_out);
                 break;
         }
     }
@@ -203,6 +224,7 @@ public class ZhuActivity extends AppCompatActivity implements View.OnClickListen
 
         for (int i = 0; i < value.data.size(); i++) {
             data = value.data;
+            uid1 = data.get(i).uid;
         }
 
         linearLayoutManager = new LinearLayoutManager(this);
